@@ -16,7 +16,15 @@ scale=1.0">
 
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <h1>Daftar Publikasi BPS Provinsi Bengkulu</h1>
+    <h1>Daftar Publikasi BPS Provinsi Papua</h1>
+    @if (session('success'))
+    <div class="alert alert-success" style="max-width: 80vw; margin: 12px auto;">
+        {{ session('success') }}
+    </div>
+    @endif
+    <div style="width: 80vw; margin: 12px auto;">
+        <a href="{{ route('publikasi.create') }}" class="btn btn-primary">Tambah Publikasi</a>
+    </div>
     <table border="1" cellpadding="10" cellspacing="0">
         <thead>
             <tr>
