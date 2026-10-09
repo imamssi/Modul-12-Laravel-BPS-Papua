@@ -14,10 +14,16 @@
             --accent-blue: #005baa;
             --text-light: rgb(209, 220, 252);
         }
+        * { box-sizing: border-box; }
         body {
             background-color: var(--navy-soft);
             font-family: "Segoe UI", Arial, sans-serif;
             margin: 0;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         .bps-header {
             background-color: var(--navy);
@@ -28,6 +34,8 @@
             align-items: center;
             justify-content: space-between;
             gap: 10px 5vw;
+            font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+            box-shadow: 0 4px 16px rgba(2, 20, 79, 0.1);
         }
         .header-brand {
             display: flex;
@@ -44,6 +52,7 @@
         }
         .bps-nav { display: flex; flex-wrap: wrap; gap: 4px 6px; }
         .bps-nav a {
+            font-family: sans-serif;
             font-size: 14px;
             color: white;
             text-decoration: none;
@@ -52,15 +61,18 @@
             white-space: nowrap;
         }
         .bps-nav a:hover, .bps-nav a.active { background-color: var(--navy-light); }
+        article { margin-top: 32px; margin-bottom: 48px; flex: 1; }
         .page-title {
             text-align: center;
             color: var(--navy);
-            margin: 32px 0 20px;
+            font-family: Georgia, serif;
+            font-weight: normal;
+            margin: 0 0 20px;
         }
         .form-card {
             background: #fff;
             max-width: 600px;
-            margin: 0 auto 48px;
+            margin: 0 auto;
             padding: 28px;
             border-radius: 10px;
             box-shadow: 0 4px 16px rgba(2, 20, 79, 0.1);
@@ -127,16 +139,8 @@
             border-radius: 4px;
             font-size: 13px;
         }
-        .bps-footer {
-            background-color: var(--navy);
-            color: var(--text-light);
-            text-align: center;
-            padding: 24px 4vw;
-            font-size: 13px;
-            font-style: italic;
-        }
         @media (max-width: 640px) {
-            .form-card { margin: 0 12px 40px; padding: 20px; }
+            .form-card { margin: 0 12px; padding: 20px; }
             .bps-header { justify-content: center; text-align: center; }
             .bps-nav { width: 100%; justify-content: center; }
         }
@@ -144,6 +148,7 @@
 </head>
 
 <body>
+    <main>
     <header class="bps-header">
         <div class="header-brand">
             <img src="https://papua.bps.go.id/_next/image?url=%2Fassets%2Flogo-bps.png&w=3840&q=75" alt="Logo BPS">
@@ -155,6 +160,7 @@
         </nav>
     </header>
 
+    <article>
     <h2 class="page-title">Tambah Publikasi</h2>
 
     <div class="form-card">
@@ -204,9 +210,8 @@
         </form>
     </div>
 
-    <footer class="bps-footer">
-        Badan Pusat Statistik Provinsi Papua &mdash; Tugas Praktikum Laravel Pertemuan 12
-    </footer>
+    </article>
+    </main>
 </body>
 
 </html>
