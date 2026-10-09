@@ -245,10 +245,15 @@
                             <td>{{ $item->judul }}</td>
                             <td>{{ $item->tanggal_rilis }}</td>
                             <td>
-                                @if (!empty($item->sampul) && file_exists(public_path('images/' . $item->sampul)))
-                                <img src="/images/{{ $item->sampul }}" alt="{{ $item->judul }}">
+                                @if (
+                                !empty($item->sampul) &&
+                                file_exists(public_path('images/' . $item->sampul))
+                                )
+                                <img
+                                    src="{{ asset('images/' . $item->sampul) }}"
+                                    alt="{{ $item->judul }}">
                                 @else
-                                <span style="color: #8892a8; font-style: italic;">Tidak ada sampul</span>
+                                <span>Tidak ada sampul</span>
                                 @endif
                             </td>
                         </tr>

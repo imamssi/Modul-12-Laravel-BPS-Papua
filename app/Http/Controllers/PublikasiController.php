@@ -37,13 +37,27 @@ class PublikasiController extends Controller
             ]
         );
 
-        $namaFile = time() . '_' . preg_replace('/[^A-Za-z0-9._-]/', '_', $request->file('sampul')->getClientOriginalName());
-        $request->file('sampul')->move(public_path('images'), $namaFile);
+        $namaFile = time() . '_' . preg_replace(
+            '/[^A-Za-z0-9._-]/',
+            '_',
+            $request->file('sampul')->getClientOriginalName()
+        );
+
+        $direktoriUpload = public_path('images/uploads');
+
+        if (!is_dir($direktoriUpload)) {
+            mkdir($direktoriUpload, 0755, true);
+        }
+
+        $request->file('sampul')->move(
+            $direktoriUpload,
+            $namaFile
+        );
 
         Publikasi::create([
             'judul' => $validated['judul'],
             'tanggal_rilis' => $validated['tanggal_rilis'],
-            'sampul' => $namaFile,
+            'sampul' => 'uploads/' . $namaFile,
         ]);
 
         return redirect()->route('publikasi.index')->with('success', 'Publikasi berhasil ditambahkan.');
